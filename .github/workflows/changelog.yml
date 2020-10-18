@@ -24,7 +24,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          publish: startsWith(github.ref, "refs/tags")
+          publish: ${{ startsWith(github.ref, "refs/tags") }}
       # Generates a YAML changelog file using https://github.com/jenkinsci/jenkins-core-changelog-generator
 
 #TODO(oleg-nenashev): It will not work well with Release Drafter which does not recreated releases. Asset does not get overwritten, and there is no ready-to-go API for overriding assets
